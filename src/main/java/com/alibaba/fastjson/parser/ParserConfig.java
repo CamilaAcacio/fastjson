@@ -69,7 +69,7 @@ public class ParserConfig {
     public final static String DENY_PROPERTY             = "fastjson.parser.deny";
     public final static String AUTOTYPE_ACCEPT           = "fastjson.parser.autoTypeAccept";
     public final static String AUTOTYPE_SUPPORT_PROPERTY = "fastjson.parser.autoTypeSupport";
-    
+
     public static final String[] DENYS;
     private static final String[] AUTO_TYPE_ACCEPT_LIST;
     public static final boolean AUTO_SUPPORT;
@@ -104,7 +104,7 @@ public class ParserConfig {
     private boolean                                         asmEnable             = !ASMUtils.IS_ANDROID;
 
     public final SymbolTable                                symbolTable           = new SymbolTable(4096);
-    
+
     public PropertyNamingStrategy                           propertyNamingStrategy;
 
     protected ClassLoader                                   defaultClassLoader;
@@ -125,34 +125,46 @@ public class ParserConfig {
 
     {
         denyHashCodes = new long[]{
-                -8720046426850100497L,
-                -8109300701639721088L,
-                -7966123100503199569L,
-                -7766605818834748097L,
-                -6835437086156813536L,
-                -4837536971810737970L,
-                -4082057040235125754L,
-                -2364987994247679115L,
-                -2262244760619952081L,
-                -1872417015366588117L,
-                -254670111376247151L,
-                -190281065685395680L,
-                33238344207745342L,
-                313864100207897507L,
-                1203232727967308606L,
-                1502845958873959152L,
-                3547627781654598988L,
-                3730752432285826863L,
-                3794316665763266033L,
-                4147696707147271408L,
-                5347909877633654828L,
-                5450448828334921485L,
-                5751393439502795295L,
-                5944107969236155580L,
-                6742705432718011780L,
-                7179336928365889465L,
-                7442624256860549330L,
-                8838294710098435315L
+            -8720046426850100497L,
+            -8165637398350707645L,
+            -8109300701639721088L,
+            -8083514888460375884L,
+            -7966123100503199569L,
+            -7921218830998286408L,
+            -7768608037458185275L,
+            -7766605818834748097L,
+            -6835437086156813536L,
+            -6179589609550493385L,
+            -5194641081268104286L,
+            -4837536971810737970L,
+            -4082057040235125754L,
+            -3935185854875733362L,
+            -2753427844400776271L,
+            -2364987994247679115L,
+            -1872417015366588117L,
+            -1589194880214235129L,
+            -254670111376247151L,
+            -190281065685395680L,
+            33238344207745342L,
+            313864100207897507L,
+            1073634739308289776L,
+            1203232727967308606L,
+            1502845958873959152L,
+            3547627781654598988L,
+            3730752432285826863L,
+            3794316665763266033L,
+            4147696707147271408L,
+            5347909877633654828L,
+            5450448828334921485L,
+            5688200883751798389L,
+            5751393439502795295L,
+            5944107969236155580L,
+            6742705432718011780L,
+            7017492163108594270L,
+            7179336928365889465L,
+            7442624256860549330L,
+            8389032537095247355L,
+            8838294710098435315L
         };
 
         long[] hashCodes = new long[AUTO_TYPE_ACCEPT_LIST.length];
@@ -292,7 +304,7 @@ public class ParserConfig {
 
         deserializers.put(JSONPObject.class, new JSONPDeserializer());
     }
-    
+
     private static String[] splitItemsFormProperty(final String property ){
         if (property != null && property.length() > 0) {
             return property.split(",");
@@ -320,7 +332,7 @@ public class ParserConfig {
             }
         }
     }
-    
+
     private void addItemsToDeny(final String[] items){
         if (items == null){
             return;
@@ -600,7 +612,7 @@ public class ParserConfig {
                         // skip
                     }
                 }
-                
+
                 asmEnable = jsonType.asm();
             }
 
@@ -780,10 +792,10 @@ public class ParserConfig {
                || clazz.isEnum() //
         ;
     }
-    
+
     /**
      * fieldName,field ，先生成fieldName的快照，减少之后的findField的轮询
-     * 
+     *
      * @param clazz
      * @param fieldCacheMap :map&lt;fieldName ,Field&gt;
      */
@@ -799,7 +811,7 @@ public class ParserConfig {
             parserAllFieldToCache(clazz.getSuperclass(), fieldCacheMap);
         }
     }
-    
+
     public static Field getFieldFromCache(String fieldName, Map<String, Field> fieldCacheMap) {
         Field field = fieldCacheMap.get(fieldName);
 
