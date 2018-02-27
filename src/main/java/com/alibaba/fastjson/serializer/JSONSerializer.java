@@ -200,6 +200,11 @@ public class JSONSerializer extends SerializeFilterable {
         return (nameFilters != null && nameFilters.size() > 0) //
                || (filterable.nameFilters != null && filterable.nameFilters.size() > 0);
     }
+    
+    public boolean hasPropertyFilters(SerializeFilterable filterable) {
+         return (propertyFilters != null && propertyFilters.size() > 0) //
+                 || (filterable.propertyFilters != null && filterable.propertyFilters.size() > 0);
+     }
 
     public int getIndentCount() {
         return indentCount;
