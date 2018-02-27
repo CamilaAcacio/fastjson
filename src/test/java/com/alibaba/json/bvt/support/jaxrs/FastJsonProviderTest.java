@@ -13,10 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.nio.charset.Charset;
 import java.io.InputStream;
 import java.io.OutputStream;
-
+import java.nio.charset.Charset;
 
 public class FastJsonProviderTest extends TestCase {
 
@@ -85,7 +84,6 @@ public class FastJsonProviderTest extends TestCase {
         } catch (WebApplicationException ex) {
             Assert.assertNotNull(ex);
         }
-
     }
 
     private SerializeFilter serializeFilter = new ValueFilter() {
