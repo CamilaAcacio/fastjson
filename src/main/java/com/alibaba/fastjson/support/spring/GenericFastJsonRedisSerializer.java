@@ -16,7 +16,7 @@ public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
     private final static ParserConfig defaultRedisConfig = new ParserConfig();
     static { defaultRedisConfig.setAutoTypeSupport(true);}
 
-    @Override
+    
     public byte[] serialize(Object object) throws SerializationException {
         if (object == null) {
             return new byte[0];
@@ -28,7 +28,7 @@ public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
         }
     }
 
-    @Override
+
     public Object deserialize(byte[] bytes) throws SerializationException {
         if (bytes == null || bytes.length == 0) {
             return null;
