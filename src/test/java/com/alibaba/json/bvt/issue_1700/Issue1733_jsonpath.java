@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Issue1733_jsonpath extends TestCase {
+
     public void test_for_issue() throws Exception {
         Order order = new Order();
         order.books.add(new Book(10, "动漫"));
@@ -48,11 +49,13 @@ public class Issue1733_jsonpath extends TestCase {
     }
 
     public static class Order {
+
         public List<Book> books = new ArrayList<Book>();
 
     }
 
     public static class Book {
+
         public BigDecimal price;
         public String category;
 
